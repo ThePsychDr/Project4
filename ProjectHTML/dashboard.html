@@ -1,0 +1,23 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Video Dashboard</h1>
+    <div id="videoList"></div>
+
+    <script>
+      // This script will run when the page is loaded
+      // It fetches the list of videos from the server and displays them
+      fetch('/videos')
+        .then(response => response.json())
+        .then(videos => {
+          const videoList = document.getElementById('videoList');
+          videos.forEach(video => {
+            const p = document.createElement('p');
+            p.textContent = video;
+            videoList.appendChild(p);
+          });
+        });
+    </script>
+  </body>
+</html>

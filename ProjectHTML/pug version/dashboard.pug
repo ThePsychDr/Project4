@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Video Dashboard
+  body
+    h1 Video Dashboard
+    div#videoList
+    script.
+      fetch('/videos')
+        .then(response => response.json())
+        .then(videos => {
+          const videoList = document.getElementById('videoList');
+          videos.forEach(video => {
+            const p = document.createElement('p');
+            p.textContent = video;
+            videoList.appendChild(p);
+          });
+        });
